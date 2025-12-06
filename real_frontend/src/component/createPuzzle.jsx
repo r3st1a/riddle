@@ -22,7 +22,7 @@ export function CreateGuess(){
       }
       message.success(`上传中`)
  try{
-          const response = await fetch('/create_rid',{
+          const response = await fetch('/create_rid/',{
               method:'post',
               headers:{'Content-Type':'application/json'},
               body:JSON.stringify(data)

@@ -36,7 +36,7 @@ export function Cards(){
     const [data, setData] = useState(null)
    useEffect(() => {
     async function getData() {
-      const response = await fetch("/mainpage")
+      const response = await fetch("/mainpage/")
       const result = await response.json()
       setData(result)   // 用 state 才能触发页面刷新
     }

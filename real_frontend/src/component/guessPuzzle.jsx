@@ -34,7 +34,7 @@ export function GuessPuzzle(){
     const {isGuess,setIsGuess,guessInputValue,setGuessInputValue,description,status,tip,setTip,answer,setAnswer,content,setContent,enterFee,isRight,setIsRight} = useContent()
     async function getAnswer() {
       //获取单一卡片的答案，谜面，提示
-      const response = await fetch("/done")
+      const response = await fetch("/done/")
       const data = await response.json()
       setAnswer(data.answer)
       setContent(data.content)
@@ -45,7 +45,7 @@ export function GuessPuzzle(){
       try{
         message.info(`请稍等`)
       const userAnswer = await Hash(guessInputValue+userAddress)
-            const response = await fetch('/answer',{
+            const response = await fetch('/answer/',{
               method:'post',
               headers:{'Content-Type':'application/json'},
               body:JSON.stringify(userAnswer)
@@ -60,7 +60,7 @@ export function GuessPuzzle(){
     async function join(){
       //参加按钮的执行
             try{
-              fetch('/join',{
+              fetch('/join/',{
               method:'post',
               headers:{'Content-Type':'application/json'},
               body:JSON.stringify(userAddress)
